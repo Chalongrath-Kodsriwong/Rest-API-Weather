@@ -8,3 +8,13 @@
     font-weight: 100;
     font-style: normal;
 }
+
+body{
+    background: #222;
+}
+
+.search img{
+    width: 20px;
+    height: 15px;
+}
+
