@@ -1,0 +1,18 @@
+การใช้ async (asynchronous operations) และ await 
+- synchronous (รันตามลำดับทีละบรรทัด) มากขึ้น ซึ่งช่วยให้โค้ดอ่านง่ายขึ้นและลดความซับซ้อนในการจัดการกับ Promise
+1. การใช้ async = Async คือการประกาศฟังก์ชันแบบ asynchronous (ไม่ต้องรอการทำงานของโค้ดก่อนหน้า) โดยจะ return ค่าเป็น Promise (Object) เสมอ (ถ้าหากไม่มี function await จะทำงานแบบ synchronous ทันที)
+    -(Example)
+    async function myFunction() {
+        return "Hello, World!";
+    }
+
+myFunction().then(result => console.log(result)); // จะพิมพ์ "Hello, World!" เพราะ myFunction() return Promise.resolve("Hello, World!")
+
+
+2. การใช้ awit = Await เป็นคำที่ใช้ภายในฟังก์ชันที่ประกอบด้วย async เพื่อรอการทำงานของ Pormise ให้เสร็จก่อนจึงจะดำเนินการโค้ดต่อไปได้ (โดย await จะหยุดการทำงานของโค้ดชั่วคราว ((แต่จะไม่ Block การทำงานทั้งหมดของโปรแกรม)) จนกว่า Promise จะ resolve หรือ reject ออกไป)
+    -(Example)
+    async function getData() {
+        const result = await fetchData(); // รอให้ fetchData() เสร็จก่อน
+        console.log(result); // แสดงผลหลังจากที่ fetchData() เสร็จสมบูรณ์
+    }
+
